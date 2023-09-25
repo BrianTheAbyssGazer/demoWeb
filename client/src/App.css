@@ -23,7 +23,8 @@
     background-size: cover;
 }
 .gap-50 {
-    height: 100px;
+    height: 10vw;
+    max-height: 100px;
 }
 .backgroundColor {
     background-color: var(--theme-color-opaque);

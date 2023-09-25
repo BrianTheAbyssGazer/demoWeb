@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'client')));
 
 // Registration endpoint
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     const { email, password, username } = req.body;
     const result = await registerUser(email, password, username);
     // Check if the email is already registered
@@ -25,7 +25,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Login endpoint
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     // Find the member by email (In a real app, you would compare hashed passwords)
     const result = await getUser(email);

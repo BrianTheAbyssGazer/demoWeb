@@ -34,17 +34,15 @@ const RegistrationSignIn: React.FC = () => {
             if (axios.isAxiosError(error) && error.response?.status === (401 || 500 || 404)) {
                 setErrorMessageSignIn(error.response.data.message);
             }
-            else {
-                setErrorMessageSignIn('');
-            }
+            else setErrorMessageSignIn('Bad Request');
         }
     };
 
     const handleRegister = async (e: React.MouseEvent) => {
         e.preventDefault();
-        const response = await AxiosPort.post('/register', { email, password, username })
         try {
-            if (response.status === (401 || 500 || 404)) {
+            const response = await AxiosPort.post('/register', { email, password, username })
+            if (response.status === (201)) {
                 login({
                     userName: username,
                     email: email,
@@ -55,9 +53,9 @@ const RegistrationSignIn: React.FC = () => {
         }
         catch (error) {
             if (axios.isAxiosError(error) && error.response?.status === 400) {
-                setErrorMessageRegister(response.data.message);
+                setErrorMessageRegister(error.response.data.message);
             }
-            console.error(error);
+            else setErrorMessageSignIn('Bad Request');
         }
     };
 

@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'client')));
 // Registration endpoint
-app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/api/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password, username } = req.body;
     const result = yield (0, db_1.registerUser)(email, password, username);
     // Check if the email is already registered
@@ -30,7 +30,7 @@ app.post('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(400).json({ message: 'This email has already been registered' });
 }));
 // Login endpoint
-app.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     // Find the member by email (In a real app, you would compare hashed passwords)
     const result = yield (0, db_1.getUser)(email);

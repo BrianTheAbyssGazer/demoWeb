@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseURL = process.env.NODE_ENV === 'production'
-    ? "" : 'http://localhost:1337';
+    ? "/api" : 'http://localhost:1337/api';
 
 const AxiosPort = axios.create({
     baseURL,
