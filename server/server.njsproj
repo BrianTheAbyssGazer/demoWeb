@@ -33,24 +33,11 @@
   <ItemGroup>
     <None Include="app.ts" />
     <Content Include=".env" />
-    <Content Include="client\assets\background-27470815.jpg" />
-    <Content Include="client\assets\brand-391a90ba.png" />
-    <Content Include="client\assets\Icarus-3f9e76b9.mp3" />
-    <Content Include="client\assets\index-7b2f4249.js" />
-    <Content Include="client\assets\index-b37a56f5.css" />
-    <Content Include="client\assets\transcendence-c25c2fb6.pdf" />
-    <Content Include="client\brand.svg" />
-    <Content Include="client\index.html" />
-    <Content Include="client\vite.svg" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="db.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="client\" />
-    <Folder Include="client\assets\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

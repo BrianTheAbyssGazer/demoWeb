@@ -12,6 +12,7 @@ import NeuronReconstruction from './pages/NeuronReconstruction';
 import CyberAscension from './pages/CyberAscension';
 import SpiritualTranscendece from './pages/SpiritualTranscendece';
 import ErrorPage from './pages/ErrorPage';
+import TestPage from './pages/testPage';
 
 const App: React.FC = () => {
     return (
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                             <Route path="NeuronReconstruction" element={<NeuronReconstruction />} />
                             <Route path="SpiritualTranscendece" element={<SpiritualTranscendece />} />
                             <Route path="CyberAscension" element={<CyberAscension />} />
+                            <Route path="testPage" element={<TestPage />} />
                             <Route path='*' element={<ErrorPage />} />
                         </Routes>
                         <BottomPlayer />

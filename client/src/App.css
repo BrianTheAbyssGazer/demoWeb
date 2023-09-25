@@ -85,3 +85,9 @@
 .profile-dropdown {
     min-width: 11rem;
 }
+.card {
+    background-color: var(--theme-color);
+}
+.card:hover {
+    background-color: var(--theme-color-opaque);
+}
