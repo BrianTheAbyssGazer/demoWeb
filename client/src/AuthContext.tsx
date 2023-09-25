@@ -10,13 +10,17 @@ interface UserData {
 
 // Create a new context
 interface AuthContextType {
-    user: UserData | null;
+    user: UserData;
     login: (userData: UserData) => void;
     logout: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType>({
-    user: null,
+    user: {
+        userName: ' ',
+        email: ' ',
+        loggedIn: false,
+    },
     login: () => { },
     logout: () => { }
 });
@@ -27,20 +31,19 @@ interface AuthProviderProps {
 }
 
 const getInitialState = () => {
-    const authInfo = localStorage.getItem("AuthInfo")
-    return authInfo ? JSON.parse(authInfo) : {
+    const authInfo = localStorage.getItem("AuthInfo");
+    return authInfo==null ? {
         userName: ' ',
         email: ' ',
         loggedIn: false,
-    };
+    } : JSON.parse(authInfo);
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const [user, setUser] = useState<UserData | null>(getInitialState());
+    const [user, setUser] = useState<UserData>(getInitialState());
     useEffect(() => {
         localStorage.setItem("AuthInfo", JSON.stringify(user))
     }, [user])
-
     // Function to set the authenticated user
     const login = (userData: UserData) => {
         setUser(userData);
@@ -48,7 +51,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
     // Function to clear the authenticated user (logout)
     const logout = () => {
-        setUser(null);
+        setUser({
+            userName: ' ',
+            email: ' ',
+            loggedIn: false,
+        });
     };
 
     return (

@@ -35,7 +35,7 @@ const Navigationbar: React.FC = () => {
                     <form className="navbar-height" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     </form>
-                    {user ? (
+                    {user.loggedIn ? (
                         <li className="nav-item dropdown navbar-height">
                             <a className="nav-link dropdown-toggle justify-content-center profile-dropdown navbar-height ps-2 pe-1" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {user.userName}
