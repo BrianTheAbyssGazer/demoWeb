@@ -45,31 +45,6 @@ app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function*
     else
         res.status(401).json({ message: 'Incorrect email or password. Please try again.' });
 }));
-// catch 404 and forward to error handler
-app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err['status'] = 404;
-    next(err);
-});
-// error handlers
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => {
-        res.status(err['status'] || 500).json({
-            message: err.message,
-            error: err
-        });
-    });
-}
-// production error handler
-// no stacktraces leaked to users
-app.use((err, req, res, next) => {
-    res.status(err.status || 500).json({
-        message: err.message,
-        error: err
-    });
-});
 app.set('port', process.env.PORT || 4000);
 const server = app.listen(app.get('port'), function () {
     console.log(`Express server listening on port ${server.address().port}`);
