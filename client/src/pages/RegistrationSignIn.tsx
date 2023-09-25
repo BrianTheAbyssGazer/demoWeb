@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import AxiosPort from '../api/AxiosPort';
 import axios from 'axios';
-import { useAuth } from '../AuthContext';
+import { AuthContext } from '../AuthContext';
+import { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 
@@ -12,7 +13,7 @@ const RegistrationSignIn: React.FC = () => {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
     const [errorMessageRegister, setErrorMessageRegister] = useState('');
-    const { login } = useAuth();
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const [errorMessageSignIn, setErrorMessageSignIn] = useState('');

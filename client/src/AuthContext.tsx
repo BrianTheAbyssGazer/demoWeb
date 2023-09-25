@@ -1,5 +1,5 @@
 // src/AuthContext.tsx
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useState, ReactNode, useEffect } from 'react';
 
 // Define the user data type (customize as needed)
 interface UserData {
@@ -15,16 +15,11 @@ interface AuthContextType {
     logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
-// Custom hook to access the context
-export const useAuth = (): AuthContextType => {
-    const context = useContext(AuthContext);
-    if (context === undefined) {
-        throw new Error('useAuth must be used within an AuthProvider');
-    }
-    return context;
-};
+export const AuthContext = createContext<AuthContextType>({
+    user: null,
+    login: () => { },
+    logout: () => { }
+});
 
 // AuthProvider component to wrap your app with
 interface AuthProviderProps {

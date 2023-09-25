@@ -1,10 +1,11 @@
 // src/components/Navbar.tsx
 import React from 'react';
-import { useAuth } from '../AuthContext';    
+import { AuthContext } from '../AuthContext';
+import { useContext } from 'react';
 import logo from '../assets/brand.png';
 
 const Navigationbar: React.FC = () => {
-    const { user, logout } = useAuth();
+    const { user, logout } = useContext(AuthContext);
     const handleLogout = () => {
         logout();
     };
