@@ -30,17 +30,13 @@ interface AuthProviderProps {
     children: ReactNode;
 }
 
-const getInitialState = () => {
-    const authInfo = localStorage.getItem("AuthInfo");
-    return authInfo ===  null ? {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+    //const [user, setUser] = useState<UserData>(getInitialState());
+    const [user, setUser] = useState<UserData>({
         userName: ' ',
         email: ' ',
         loggedIn: false,
-    } : JSON.parse(authInfo);
-}
-
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    const [user, setUser] = useState<UserData>(getInitialState());
+    });
     useEffect(() => {
         localStorage.setItem("AuthInfo", JSON.stringify(user))
     }, [user])
