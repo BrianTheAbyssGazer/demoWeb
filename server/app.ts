@@ -3,6 +3,7 @@ import * as path from 'path';
 import { registerUser, getUser } from './db';
 import { Express, json } from 'express';
 import { NextFunction, Request, Response } from "express-serve-static-core";
+import { STATUS_CODES } from "http";
 const express = require('express');
 
 const bodyParser = require('body-parser');
@@ -43,8 +44,8 @@ app.post('/api/login', async (req, res) => {
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
-    const err = new Error('Not Found');
-    err['status'] = 404;
+    const err = new Error('404 Not Found');
+    res.status(404);
     next(err);
 });
 
