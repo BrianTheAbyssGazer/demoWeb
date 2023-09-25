@@ -1,13 +1,14 @@
 import { AddressInfo } from "net";
 import * as path from 'path';
-import { registerUser, getUser } from './db'
+import { registerUser, getUser } from './db';
+import { Express } from 'express';
 const express = require('express');
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const debug = require('debug')('my express app');
-const app = express();
+const app:Express = express();
 
 app.use(bodyParser.json());
 app.use(cors());
