@@ -32,7 +32,7 @@ interface AuthProviderProps {
 
 const getInitialState = () => {
     const authInfo = localStorage.getItem("AuthInfo");
-    return authInfo==null ? {
+    return authInfo ===  null ? {
         userName: ' ',
         email: ' ',
         loggedIn: false,

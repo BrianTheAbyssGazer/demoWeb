@@ -47,8 +47,8 @@ app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function*
 }));
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err['status'] = 404;
+    const err = new Error('404 Not Found');
+    res.status(404);
     next(err);
 });
 // error handlers
