@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navigationbar from './components/Navigationbar';
 import Home from './pages/Home'; // Import the Home component
 import RegistrationSignIn from './pages/RegistrationSignIn';
@@ -17,7 +17,7 @@ import TestPage from './pages/testPage';
 const App: React.FC = () => {
     return (
         <div className="App">
-            <Router>
+            <BrowserRouter>
                 <AuthProvider>
                     <Navigationbar />
                     <Container className="m-0 p-0" fluid>
@@ -33,7 +33,7 @@ const App: React.FC = () => {
                         <BottomPlayer />
                     </Container>
                 </AuthProvider>
-            </Router>
+            </BrowserRouter>
         </div>
     );
 };
