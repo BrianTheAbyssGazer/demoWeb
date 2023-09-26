@@ -2,7 +2,7 @@
 import React from 'react';
 import { AuthContext } from '../AuthContext';
 import { useContext } from 'react';
-import logo from '../assets/brand.png';
+import logo from '../assets/logo1.png';
 
 const Navigationbar: React.FC = () => {
     
@@ -14,7 +14,7 @@ const Navigationbar: React.FC = () => {
     return (
         <nav className="navbar navbar-expand-md container-fluid bg-secondary bg-opacity-50 p-0 m-0 h5">
             <div className="container-fluid p-0">
-                <a className="navbar-brand p-0 m-0" href="/"><img src={logo} className="img-responsive p-0 m-0" /></a>
+                <a className="navbar-brand p-0 m-0 navbar-height" href="/"><img src={logo} className="img-responsive p-0 m-0" /></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

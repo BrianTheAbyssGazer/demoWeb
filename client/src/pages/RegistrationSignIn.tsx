@@ -68,20 +68,25 @@ const RegistrationSignIn: React.FC = () => {
                             <Card>
                                 <Card.Body>
                                     <Form className="text-light">
-                                        <Form.Group className="mb-3">
+                                        <Form.Group className="mb-3" controlId="validationCustomUsername">
                                             <Form.Label>Username</Form.Label>
-                                            <Form.Control type="text" onChange={(e) => setUsername(e.target.value)} />
+                                            <Form.Control required type="text" onChange={(e) => setUsername(e.target.value)} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Email Address</Form.Label>
-                                            <Form.Control type="email" placeholder="Example@email.com" onChange={(e) => setEmail(e.target.value)} />
+                                            <Form.Control required type="email" placeholder="Example@email.com" onChange={(e) => setEmail(e.target.value)} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicPassword">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} />
+                                            <Form.Control required type="password" onChange={(e) => setPassword(e.target.value)} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                            <Form.Check type="checkbox" label="I acknowlegde and agree with the terms" />
+                                            <Form.Check
+                                                required
+                                                feedback="You must agree before submitting."
+                                                feedbackType="invalid"
+                                                type="checkbox"
+                                                label="I acknowlegde and agree with the terms" />
                                         </Form.Group>
                                         <Button variant="primary" type="submit" onClick={handleRegister}>
                                             Register
@@ -97,11 +102,11 @@ const RegistrationSignIn: React.FC = () => {
                                     <Form className="text-light">
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
                                             <Form.Label>Email</Form.Label>
-                                            <Form.Control type="email" placeholder="Example@email.com" onChange={(e) => setEmail(e.target.value)} />
+                                            <Form.Control required type="email" placeholder="Example@email.com" onChange={(e) => setEmail(e.target.value)} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicPassword">
                                             <Form.Label>Password</Form.Label>
-                                            <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} />
+                                            <Form.Control required type="password" onChange={(e) => setPassword(e.target.value)} />
                                         </Form.Group>
                                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                             <Form.Check type="checkbox" label="Remember my account" />
