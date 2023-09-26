@@ -47,7 +47,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     useEffect(() => {
         localStorage.setItem("AuthInfo", JSON.stringify(user))
         if (user.loggedIn === true) navigate(-1);
-    }, [user, navigate])
+    }, [user])
 
     // Function to set the authenticated user
     const login = (userData: UserData) => {
