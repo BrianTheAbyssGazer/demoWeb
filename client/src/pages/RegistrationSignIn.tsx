@@ -57,7 +57,7 @@ const RegistrationSignIn: React.FC = () => {
             else setErrorMessageSignIn('Bad Request');
         }
     };
-    if (user.loggedIn) navigate(-1);
+    if (user.loggedIn) navigate('/');
     else {
         return (
             <div>
