@@ -1,5 +1,7 @@
 // src/AuthContext.tsx
 import React, { createContext, useState, ReactNode, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 // Define the user data type (customize as needed)
 interface UserData {
@@ -30,19 +32,26 @@ interface AuthProviderProps {
     children: ReactNode;
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-    //const [user, setUser] = useState<UserData>(getInitialState());
-    const [user, setUser] = useState<UserData>({
+const getInitialState = () => {
+    const authInfo = localStorage.getItem("AuthInfo");
+    return authInfo ===  null ? {
         userName: ' ',
         email: ' ',
         loggedIn: false,
-    });
+    } : JSON.parse(authInfo);
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+    const [user, setUser] = useState<UserData>(getInitialState());
+    const navigate = useNavigate();
     useEffect(() => {
         localStorage.setItem("AuthInfo", JSON.stringify(user))
     }, [user])
+
     // Function to set the authenticated user
-    const login = (userData: UserData) => {
-        setUser(userData);
+    const login = async (userData: UserData) => {
+        await setUser(userData);
+        navigate(-1);
     };
 
     // Function to clear the authenticated user (logout)

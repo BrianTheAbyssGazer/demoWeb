@@ -4,7 +4,6 @@ import AxiosPort from '../api/AxiosPort';
 import axios from 'axios';
 import { AuthContext } from '../AuthContext';
 import { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 
 
@@ -14,7 +13,7 @@ const RegistrationSignIn: React.FC = () => {
     const [username, setUsername] = useState('');
     const [errorMessageRegister, setErrorMessageRegister] = useState('');
     const { login } = useContext(AuthContext);
-    const navigate = useNavigate();
+
 
     const [errorMessageSignIn, setErrorMessageSignIn] = useState('');
     const handleSignIn = async (e: React.MouseEvent) => {
@@ -28,7 +27,7 @@ const RegistrationSignIn: React.FC = () => {
                     email: email,
                     loggedIn: true,
                 });
-                navigate(-1);
+                
             }
         }
         catch (error) {
@@ -49,7 +48,6 @@ const RegistrationSignIn: React.FC = () => {
                     email: email,
                     loggedIn: true,
                 });
-                navigate(-1);
             }
         }
         catch (error) {

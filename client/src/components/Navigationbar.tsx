@@ -5,7 +5,9 @@ import { useContext } from 'react';
 import logo from '../assets/brand.png';
 
 const Navigationbar: React.FC = () => {
+    
     const { user, logout } = useContext(AuthContext);
+    console.log('render navbar' + user.loggedIn);
     const handleLogout = () => {
         logout();
     };
@@ -29,6 +31,9 @@ const Navigationbar: React.FC = () => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link px-2 navbar-height" href="/">Career</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link px-2 navbar-height" href="/">People</a>
                         </li>
                         
                     </ul>
