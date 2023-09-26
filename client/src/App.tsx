@@ -13,25 +13,29 @@ import CyberAscension from './pages/CyberAscension';
 import SpiritualTranscendece from './pages/SpiritualTranscendece';
 import ErrorPage from './pages/ErrorPage';
 import TestPage from './pages/testPage';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
     return (
         <div className="App">
             <BrowserRouter>
                 <AuthProvider>
-                    <Navigationbar />
-                    <Container className="m-0 p-0" fluid>
-                        <Routes>
-                            <Route path="/" element={<Home />} /> {/* Use exact to match the root path */}
-                            <Route path="RegistrationSignIn" element={<RegistrationSignIn />} />
-                            <Route path="NeuronReconstruction" element={<NeuronReconstruction />} />
-                            <Route path="SpiritualTranscendece" element={<SpiritualTranscendece />} />
-                            <Route path="CyberAscension" element={<CyberAscension />} />
-                            <Route path="testPage" element={<TestPage />} />
-                            <Route path='*' element={<ErrorPage />} />
-                        </Routes>
-                        <BottomPlayer />
-                    </Container>
+                    <div className='BackGroundImg'>
+                        <Navigationbar />
+                        <Container className="m-0 p-0" fluid>
+                            <Routes>
+                                <Route path="/" element={<Home />} /> {/* Use exact to match the root path */}
+                                <Route path="RegistrationSignIn" element={<RegistrationSignIn />} />
+                                <Route path="NeuronReconstruction" element={<NeuronReconstruction />} />
+                                <Route path="SpiritualTranscendece" element={<SpiritualTranscendece />} />
+                                <Route path="CyberAscension" element={<CyberAscension />} />
+                                <Route path="testPage" element={<TestPage />} />
+                                <Route path='*' element={<ErrorPage />} />
+                            </Routes>
+                            <BottomPlayer />
+                        </Container>
+                    </div>
+                    <Footer />
                 </AuthProvider>
             </BrowserRouter>
         </div>
