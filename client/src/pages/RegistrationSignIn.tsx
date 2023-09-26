@@ -14,20 +14,19 @@ const RegistrationSignIn: React.FC = () => {
     const [errorMessageRegister, setErrorMessageRegister] = useState('');
     const { login } = useContext(AuthContext);
 
-
     const [errorMessageSignIn, setErrorMessageSignIn] = useState('');
     const handleSignIn = async (e: React.MouseEvent) => {
         e.preventDefault();
         try {
             const response = await AxiosPort.post('/login', { email, password })
             if (response.status === 200) {
-                console.log(response.data.message);
+                console.log('logging in');
                 login({
                     userName: response.data.message,
                     email: email,
                     loggedIn: true,
                 });
-                
+                console.log('navigating ');
             }
         }
         catch (error) {

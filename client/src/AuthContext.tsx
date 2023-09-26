@@ -1,5 +1,5 @@
 // src/AuthContext.tsx
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
@@ -44,27 +44,23 @@ const getInitialState = () => {
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [user, setUser] = useState<UserData>(getInitialState());
     const navigate = useNavigate();
-
+    useEffect(() => {
+        localStorage.setItem("AuthInfo", JSON.stringify(user))
+        if (user.loggedIn === true) navigate(-1);
+    }, [user, navigate])
 
     // Function to set the authenticated user
-    const login = async (userData: UserData) => {
-        await setUser(userData);
-        await localStorage.setItem("AuthInfo", JSON.stringify(userData));
-        navigate(-1);
+    const login = (userData: UserData) => {
+        setUser(userData);
     };
 
     // Function to clear the authenticated user (logout)
-    const logout = async () => {
-        await setUser({
+    const logout = () => {
+        setUser({
             userName: ' ',
             email: ' ',
             loggedIn: false,
         });
-        await localStorage.setItem("AuthInfo", JSON.stringify({
-            userName: ' ',
-            email: ' ',
-            loggedIn: false,
-        }));
     };
 
     return (

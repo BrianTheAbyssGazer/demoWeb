@@ -7,7 +7,7 @@ import logo from '../assets/brand.png';
 const Navigationbar: React.FC = () => {
     
     const { user, logout } = useContext(AuthContext);
-    console.log('render navbar' + user.loggedIn);
+    console.log('render navbar ' + user.loggedIn);
     const handleLogout = () => {
         logout();
     };
