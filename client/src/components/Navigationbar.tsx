@@ -7,7 +7,6 @@ import logo from '../assets/logo1.png';
 const Navigationbar: React.FC = () => {
     
     const { user, logout } = useContext(AuthContext);
-    console.log('render navbar ' + user.loggedIn);
     const handleLogout = () => {
         logout();
     };
@@ -18,7 +17,7 @@ const Navigationbar: React.FC = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse pl-10" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
                             <a className="nav-link px-2 navbar-height" href="/">Home</a>
@@ -45,7 +44,7 @@ const Navigationbar: React.FC = () => {
                             <a className="nav-link dropdown-toggle justify-content-center profile-dropdown navbar-height ps-2 pe-1" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {user.userName}
                             </a>
-                            <ul className="dropdown-menu p-0 bg-secondary bg-opacity-50 py-0">
+                            <ul className="dropdown-menu p-0 bg-secondary bg-opacity-80 py-0">
                                 <li><a className="dropdown-item" href="/">Profile</a></li>
                                 <li><a className="dropdown-item" href="/">Notifications</a></li>
                                 <li><a className="dropdown-item" href="/">Cart</a></li>

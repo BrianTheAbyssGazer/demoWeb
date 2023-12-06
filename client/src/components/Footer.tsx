@@ -21,10 +21,10 @@ const Footer = () => {
                     </Column>
                     <Column>
                         <Heading>Services</Heading>
-                        <FooterLink href="#">Web Developing</FooterLink>
+                        <FooterLink href="#">Longevity Plan</FooterLink>
                         <FooterLink href="#">Internships</FooterLink>
-                        <FooterLink href="#">Coding</FooterLink>
-                        <FooterLink href="#">Teaching</FooterLink>
+                        <FooterLink href="#">Education</FooterLink>
+                        <FooterLink href="#">Website Development</FooterLink>
                     </Column>
                     <Column>
                         <Heading>Contact Us</Heading>

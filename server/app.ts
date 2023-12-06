@@ -5,15 +5,17 @@ import { Express, json } from 'express';
 import { NextFunction, Request, Response } from "express-serve-static-core";
 import { STATUS_CODES } from "http";
 const express = require('express');
-
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const debug = require('debug')('my express app');
 const app:Express = express();
+const bcrypt = require('bcrypt');
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(cookieParser());
 
 
 app.use(express.static(path.join(__dirname, 'client')));
@@ -21,10 +23,18 @@ app.use(express.static(path.join(__dirname, 'client')));
 // Registration endpoint
 app.post('/api/register', async (req, res) => {
     const { email, password, username } = req.body;
-    const result = await registerUser(email, password, username);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const result = await registerUser(email, hashedPassword, username);
+    console.log(hashedPassword);
     // Check if the email is already registered
-    if (result) res.status(201).json({ message: 'Registration successful' });
-    else res.status(400).json({ message: 'This email has already been registered' });
+    if (result) {
+        res.status(201).json({ message: 'Registration successful' });
+        res.cookie('email', email, { maxAge: 1000 * 60 * 60, secure: true, httpOnly: true });
+        res.cookie('username', username, { maxAge: 1000 * 60 * 60, secure: true });
+    }
+    else {
+        res.status(400).json({ message: 'This email has already been registered' });
+    }
 });
 
 // Login endpoint
@@ -34,8 +44,10 @@ app.post('/api/login', async (req, res) => {
     const result = await getUser(email);
     if (result[0]) {
         console.log(result[0].username, result[0].password);
-        if (password === result[0].password) {
+        if (await bcrypt.compare(password, result[0].password)) {
             res.status(200).json({ message: result[0].username });
+            res.cookie('email', email, { maxAge: 1000 * 60 * 60, secure: true });
+            res.cookie('username', username, { maxAge: 1000 * 60 * 60, secure: true });
         }
         else res.status(401).json({ message: 'Incorrect email or password. Please try again.' });
     }

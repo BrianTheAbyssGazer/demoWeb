@@ -12,6 +12,7 @@ import NeuronReconstruction from './pages/NeuronReconstruction';
 import CyberAscension from './pages/CyberAscension';
 import SpiritualTranscendece from './pages/SpiritualTranscendece';
 import ErrorPage from './pages/ErrorPage';
+import Schedule from './pages/Schedule';
 import TestPage from './pages/testPage';
 import Footer from './components/Footer';
 
@@ -19,22 +20,21 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <BrowserRouter>
-                <AuthProvider>
-                    <div className='BackGroundImg'>
+                <AuthProvider>   
+                    <Container className="m-0 p-0 BackGroundImg" fluid >
                         <Navigationbar />
-                        <Container className="m-0 p-0" fluid>
-                            <Routes>
-                                <Route path="/" element={<Home />} /> {/* Use exact to match the root path */}
-                                <Route path="RegistrationSignIn" element={<RegistrationSignIn />} />
-                                <Route path="NeuronReconstruction" element={<NeuronReconstruction />} />
-                                <Route path="SpiritualTranscendece" element={<SpiritualTranscendece />} />
-                                <Route path="CyberAscension" element={<CyberAscension />} />
-                                <Route path="testPage" element={<TestPage />} />
-                                <Route path='*' element={<ErrorPage />} />
-                            </Routes>
-                            <BottomPlayer />
-                        </Container>
-                    </div>
+                        <Routes>
+                            <Route path="/" element={<Home />} /> {}
+                            <Route path="RegistrationSignIn" element={<RegistrationSignIn />} />
+                            <Route path="NeuronReconstruction" element={<NeuronReconstruction />} />
+                            <Route path="SpiritualTranscendece" element={<SpiritualTranscendece />} />
+                            <Route path="CyberAscension" element={<CyberAscension />} />
+                            <Route path="Schedule" element={<Schedule />} />
+                            <Route path="testPage" element={<TestPage />} />
+                            <Route path='*' element={<ErrorPage />} />
+                        </Routes>
+                        <BottomPlayer />
+                    </Container>
                     <Footer />
                 </AuthProvider>
             </BrowserRouter>

@@ -10,6 +10,7 @@ function ProjectsCarousels() {
                 <button type="button" data-bs-target="#projects" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#projects" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#projects" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#projects" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div className="carousel-inner backgroundColor d-flex">
                 <div className="carousel-item" data-bs-interval="2000">
@@ -37,6 +38,15 @@ function ProjectsCarousels() {
                             Are you ready to face death and be reborn? Do you worry about the lose of humanity after cybernetic ascension?
                             Learn the essence of self-consciousness and find your purpose in the universe. Make spiritual transcendence
                             before your physical transformation.
+                        </p>
+                    </div>
+                </div>
+                <div className="carousel-item" data-bs-interval="2000">
+                    <div className="carousel-caption d-flex flex-column justify-content-center h-100"
+                        onClick={() => navigate("Schedule")}>
+                        <h3>Plan your longevity until ascension</h3>
+                        <p className="h6 overflow-auto h-50">There are many aspects to take care when striving for longevity.
+                        We provide a deatiled personalized agenda for you to reduce the aging process.
                         </p>
                     </div>
                 </div>
