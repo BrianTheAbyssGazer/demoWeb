@@ -13,6 +13,26 @@ function ProjectsCarousels() {
                 <button type="button" data-bs-target="#projects" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
             <div className="carousel-inner backgroundColor d-flex">
+                <div className="carousel-item active" data-bs-interval="2000">
+                    <div className="carousel-caption d-flex flex-column justify-content-center h-100"
+                        onClick={() => navigate("Schedule")}>
+                        <h3>Plan your longevity until ascension</h3>
+                        <p className="h6 overflow-auto h-50">There are many aspects to take care when striving for longevity.
+                            We provide a deatiled personalized agenda for you to reduce the aging process.
+                        </p>
+                    </div>
+                </div>
+                <div className="carousel-item" data-bs-interval="2000">
+                    <div className="carousel-caption d-flex flex-column justify-content-center h-100"
+                        onClick={() => navigate("SpiritualTranscendece")}>
+                        <h3>Prepare for cybernetic ascension</h3>
+                        <p className="h6 overflow-auto h-50">
+                            Are you ready to face death and be reborn? Do you worry about the lose of humanity after cybernetic ascension?
+                            Learn the essence of self-consciousness and find your purpose in the universe. Make spiritual transcendence
+                            before your physical transformation.
+                        </p>
+                    </div>
+                </div>
                 <div className="carousel-item" data-bs-interval="2000">
                     <div className="carousel-caption d-flex flex-column justify-content-center h-100"
                         onClick={() => navigate("NeuronReconstruction")}>
@@ -30,26 +50,7 @@ function ProjectsCarousels() {
                             only beneficial to development, but also neccessary to avoid extinction.</p>
                     </div>
                 </div>
-                <div className="carousel-item active" data-bs-interval="2000">
-                    <div className="carousel-caption d-flex flex-column justify-content-center h-100"
-                        onClick={() => navigate("SpiritualTranscendece")}>
-                        <h3>Prepare for cybernetic ascension</h3>
-                        <p className="h6 overflow-auto h-50">
-                            Are you ready to face death and be reborn? Do you worry about the lose of humanity after cybernetic ascension?
-                            Learn the essence of self-consciousness and find your purpose in the universe. Make spiritual transcendence
-                            before your physical transformation.
-                        </p>
-                    </div>
-                </div>
-                <div className="carousel-item" data-bs-interval="2000">
-                    <div className="carousel-caption d-flex flex-column justify-content-center h-100"
-                        onClick={() => navigate("Schedule")}>
-                        <h3>Plan your longevity until ascension</h3>
-                        <p className="h6 overflow-auto h-50">There are many aspects to take care when striving for longevity.
-                        We provide a deatiled personalized agenda for you to reduce the aging process.
-                        </p>
-                    </div>
-                </div>
+
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#projects" data-bs-slide="prev" tabIndex={-1}>
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
