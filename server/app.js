@@ -16,22 +16,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const debug = require('debug')('my express app');
 const app = express();
-const bcrypt = require('bcrypt');
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'client')));
 // Registration endpoint
 app.post('/api/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password, username } = req.body;
-    const hashedPassword = yield bcrypt.hash(password, 10);
-    const result = yield (0, db_1.registerUser)(email, hashedPassword, username);
-    console.log(hashedPassword);
+    const result = yield (0, db_1.registerUser)(email, password, username);
     // Check if the email is already registered
     if (result)
         res.status(201).json({ message: 'Registration successful' });
-    else {
+    else
         res.status(400).json({ message: 'This email has already been registered' });
-    }
 }));
 // Login endpoint
 app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,7 +36,7 @@ app.post('/api/login', (req, res) => __awaiter(void 0, void 0, void 0, function*
     const result = yield (0, db_1.getUser)(email);
     if (result[0]) {
         console.log(result[0].username, result[0].password);
-        if (yield bcrypt.compare(password, result[0].password)) {
+        if (password === result[0].password) {
             res.status(200).json({ message: result[0].username });
         }
         else
